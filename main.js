@@ -10,88 +10,56 @@ nav.style.height = '60px'; // < need to check width in Figma to see what size it
 // (e.g backgorund - color => backgroudColor)
 nav.style.backgroundColor = '#222222'; // 'black', 'rgb(0,0,0)', 'rgba(0,0,0,1)'
 
-// plan thursday - 
-
-/* const navFlex = () => {
-nav.style.flex;
-for (i = 0; i < 5; i++) {
-    nav.style.flex = "1"; 
-  };
+function setDisplayAndPosition (element) {
+    element.style.display = 'flex';
+    element.style.position = 'absolute';
 };
-*/
-/*
-Yulia's comments
-const pizzaBanana = document.createElement('div');
-pizzaBanana.setAttribute('pizza', 'banana') => 
-  <h1 pizza="banana"></h1>
-pizzaBanana.setAttribute('class', 'some-class') => 
-  <h1 pizza="banana" class="some-class"></h1>
-pizzaBanana.textContent = 'I am an H1!' => 
-  <h1 pizza="banana" class="some-class">I am an H1!</h1>
-
-*/
-
 
 // NAV
 //
 // BAR
+function setNavProps (element) {
+    element.style.top = '19.5px';
+    element.style.color = 'white';
+    element.style.fontSize = '16px';
+    element.style.fontFamily = 'Lato';
+    element.style.fontWeight = '400'; 
+    setDisplayAndPosition(element);
+};
 
 const navYulia = document.createElement('div');
 navYulia.setAttribute('id', 'nvYulia');
-navYulia.style.display = 'flex';
-navYulia.style.position = 'absolute';
+setNavProps(navYulia);
 navYulia.style.left = '24px';
-navYulia.style.top = '19px';
-navYulia.style.color = 'white';
-navYulia.style.fontSize = '16px';
 let h3navYulia = document.createElement('h3');
     h3navYulia.innerText = 'YULIA TSERNANT';
-    h3navYulia.style.fontFamily = 'Lato'; 
     navYulia.append(h3navYulia);
 nav.append(navYulia);
 
 const navInstagram = document.createElement('div');
 navInstagram.setAttribute('id', 'nvInstagram');
-navInstagram.style.display = 'flex';
-navInstagram.style.position = 'absolute';
+setNavProps(navInstagram);
 navInstagram.style.right = '271px';
-navInstagram.style.top = '20px';
-navInstagram.style.color = 'white';
-navInstagram.style.fontSize = '16px';
 let h3navInstagram = document.createElement('h3');
     h3navInstagram.innerText = 'INSTAGRAM';
-    h3navInstagram.style.fontWeight = '400';
-    h3navInstagram.style.fontFamily = 'Inter'; 
     navInstagram.append(h3navInstagram);
 nav.append(navInstagram);
 
 const navGallery = document.createElement('div');
 navGallery.setAttribute('id', 'nvGallery');
-navGallery.style.display = 'flex';
-navGallery.style.position = 'absolute';
+setNavProps(navGallery);
 navGallery.style.right = '151px';
-navGallery.style.top = '20px';
-navGallery.style.color = 'white';
-navGallery.style.fontSize = '16px';
 let h3navGallery = document.createElement('h3');
     h3navGallery.innerText = 'GALLERY';
-    h3navGallery.style.fontFamily = 'Inter'; 
-    h3navGallery.style.fontWeight = '400';
     navGallery.append(h3navGallery);
 nav.append(navGallery);
 
 const navContact = document.createElement('div');
 navContact.setAttribute('id', 'nvContact');
-navContact.style.display = 'flex';
-navContact.style.position = 'absolute';
+setNavProps(navContact);
 navContact.style.right = '23px';
-navContact.style.top = '20px';
-navContact.style.color = 'white';
-navContact.style.fontSize = '16px';
 let h3navContact = document.createElement('h3');
     h3navContact.innerText = 'CONTACT';
-    h3navContact.style.fontFamily = 'Inter'; 
-    h3navContact.style.fontWeight = '400';
     navContact.append(h3navContact);
 nav.append(navContact);
 
@@ -99,143 +67,79 @@ nav.append(navContact);
 //
 // LAYERS
 
+function imgProps (element, imgDeg) {
+    element.style.left = '670px';
+    element.style.height = '440px';
+    element.style.width = '312px';
+    element.style.top = '260px';
+    element.style.transform = `rotate(${imgDeg}deg)`; 
+    document.body.appendChild(element);
+    setDisplayAndPosition(element);
+};
+
 // pic 3 the bottom - the moon 
-
-// figma pic
-/* let img3 = document.createElement('img');
-img3.src = '/Users/imju2q/Workspace/portfolio-js.github.io/img/cloudyMoon.png';
-img3.style.display = 'flex';
-img3.style.position = 'absolute';
-img3.style.transform = 'rotate(20deg)';  
-img3.style.left = '670px';
-img3.style.height = '440px';
-img3.style.width = '312px';
-img3.style.top = '276px';
-document.body.appendChild(img3);
-*/
-
 let img3 = document.createElement('img');
-img3.src = '/Users/imju2q/Workspace/portfolio-js.github.io/img/Snitch.png';
-img3.style.display = 'flex';
-img3.style.position = 'absolute';
-img3.style.transform = 'rotate(30deg)';  
-img3.style.left = '670px';
-img3.style.height = '440px';
-img3.style.width = '312px';
-img3.style.top = '276px';
-document.body.appendChild(img3);
+img3.src = 'img/Snitch.png';
+imgProps(img3, 30);
 
 
-
-// pic 2 the middle - snitch 
-/*
+// pic 2 the middle - snitch
 let img2 = document.createElement('img');
-img2.src = "/Users/imju2q/Workspace/portfolio-js.github.io/img/Snitch.png";
-img2.style.display = 'flex';
-img2.style.position = 'absolute';
-img2.style.transform = 'rotate(10deg)';  
-img2.style.left = '670px';
-img2.style.height = '440px';
-img2.style.width = '312px';
-img2.style.top = '276px';
-document.body.appendChild(img2);
-*/
-
-let img2 = document.createElement('img');
-img2.src = "/Users/imju2q/Workspace/portfolio-js.github.io/img/violetLandscape.png";
-img2.style.display = 'flex';
-img2.style.position = 'absolute';
-img2.style.transform = 'rotate(15deg)';  
-img2.style.left = '670px';
-img2.style.height = '440px';
-img2.style.width = '312px';
-img2.style.top = '276px';
-document.body.appendChild(img2);
+img2.src = "img/violetLandscape.png"
+imgProps(img2, 15);
 
 // pic 1 top - fire
-
 let img1 = document.createElement('img');
-img1.src = "/Users/imju2q/Workspace/portfolio-js.github.io/img/fire.png";
-img1.style.display = 'flex';
-img1.style.position = 'absolute';
-img1.style.left = '670px';
-img1.style.height = '440px';
-img1.style.width = '312px';
-img1.style.top = '276px';
-document.body.appendChild(img1);
-
-/* did not work
-
-const img = document.querySelectorAll("img"); 
-function createPic1 () {
-    for (let i = 0; i < img.length; i++) {
-        let picElement1 = document.createElement('img');
-        picElement1.setAttribute('src', 'img/cloudyMoon.png');
-        picElement1.setAttribute('id', 'cloudyMoon');
-        document.appendChild(picElement1);
-    };
-};
-*/
+img1.src = "img/fire.png";
+imgProps(img1, 0);
 
 // INTRO INFO
 // 
 // YULIA
 
+function setProps (element, elementTop, elementLeft) {
+    setDisplayAndPosition (element);
+    element.style.color = 'white';
+    element.style.fontSize = '50px';
+    element.style.fontFamily = 'Poiret One'; 
+    element.style.left = elementLeft;
+    element.style.top = elementTop;
+    document.body.appendChild(element);
+};
+
 const hello = document.createElement('div');
-hello.setAttribute('id', 'Hello');
-hello.style.display = 'flex';
-hello.style.position = 'absolute';
-hello.style.left = '170px';
-hello.style.top = '328px';
-//hello.style.width = '652px';
-//hello.style.height = '144px';
-hello.style.color = 'white';
-hello.style.fontSize = '50px';
-let h1Hello = document.createElement('h1');
+    hello.setAttribute('id', 'Hello');
+    setProps(hello, '295px', '170px');
+const h1Hello = document.createElement('h1');
     h1Hello.innerText = 'HELLO, I’M';
     h1Hello.style.fontFamily = 'Poiret One'; 
     hello.append(h1Hello);
-ourBody.append(hello);
 
 const yulia = document.createElement('div');
-yulia.setAttribute('id', 'Yulia');
-yulia.style.display = 'flex';
-yulia.style.position = 'absolute';
-yulia.style.top = '456px';
-yulia.style.left = '616px';
-yulia.style.color = 'white';
-yulia.style.fontSize = '50px';
-let h1yulia = document.createElement('h1');
+    yulia.setAttribute('id', 'Yulia');
+    setProps (yulia, '410px', '616px');
+const h1yulia = document.createElement('h1');
     h1yulia.innerText = 'YULIA';
     h1yulia.style.fontFamily = 'Poiret One'; 
     yulia.append(h1yulia);
-ourBody.append(yulia);
 
 const tsernant = document.createElement('div');
-tsernant.setAttribute('id', 'Tsernant');
-tsernant.style.display = 'flex';
-tsernant.style.position = 'absolute';
-tsernant.style.top = '584px';
-tsernant.style.left = '352px';
-tsernant.style.color = 'white';
-tsernant.style.fontSize = '50px';
-let h1tsernant = document.createElement('h1');
+    tsernant.setAttribute('id', 'Tsernant');
+    setProps (tsernant, '524px', '352px');
+const h1tsernant = document.createElement('h1');
     h1tsernant.innerText = 'TSERNANT';
     tsernant.style.fontFamily = 'Poiret One'; 
     tsernant.append(h1tsernant);
-ourBody.append(tsernant);
 
 const frontDev = document.createElement('div');
-frontDev.setAttribute('id', 'FrontDev');
-frontDev.style.display = 'flex';
-frontDev.style.position = 'absolute';
-frontDev.style.top = '800px';
-frontDev.style.left = '541px';
-//frontDev.style.width = '184px';
-frontDev.style.height = '24px';
-frontDev.style.color = '#b8b8b8';
-frontDev.style.fontSize = '20px';
-let h3frontDev = document.createElement('h3');
+    frontDev.setAttribute('id', 'FrontDev');
+    setDisplayAndPosition(frontDev);
+    frontDev.style.top = '770px';
+    frontDev.style.left = '541px';
+    frontDev.style.height = '24px';
+    frontDev.style.color = '#b8b8b8';
+    frontDev.style.fontSize = '20px';
+const h3frontDev = document.createElement('h3');
     h3frontDev.innerText = 'FRONTEND DEVELOPER';
     frontDev.style.fontFamily = 'Poiret One'; 
     frontDev.append(h3frontDev);
@@ -246,53 +150,112 @@ ourBody.append(frontDev);
 // CODING   
 // 
 // ART
+
+function codiangArtInfo (element, elementLeft, elementTop)  {
+    element.style.fontFamily = 'Lato'; 
+    element.style.color = 'white';
+    element.style.left = elementLeft;
+    element.style.top = elementTop;
+};
+
 const coding = document.createElement('div');
 coding.setAttribute('id', 'Coding');
-coding.style.display = 'flex';
-coding.style.position = 'absolute';
-coding.style.left = '24px';
-//coding.style.width = '480px';
-coding.style.top = '976px';
-//coding.style.height = '112px';
-coding.style.color = 'white';
-coding.style.fontSize = '50px';
+setDisplayAndPosition(coding);
+codiangArtInfo (coding, '24px', '926px');
 let h2coding = document.createElement('h2');
     h2coding.innerText = 'CODING';
-    coding.style.fontFamily = 'Lato'; 
+    coding .style.fontSize = '70px';
     coding.append(h2coding);
 ourBody.append(coding);
 
-
 const art = document.createElement('div');
 art.setAttribute('id', 'Art');
-art.style.display = 'flex';
-art.style.position = 'absolute';
-art.style.left = '332px';
-art.style.top = '1060px';
-//art.style.width = '480px';
-//art.style.height = '112px';
-art.style.color = 'white';
-art.style.fontSize = '50px';
+setDisplayAndPosition(art);
+codiangArtInfo(art, '415px', '1025px');
 let h2art = document.createElement('h2');
     h2art.innerText = 'ART';
-    art.style.fontFamily = 'Lato'; 
+    art.style.fontSize = '70px';
     art.append(h2art);
 ourBody.append(art);
 
 const createdUsing = document.createElement('div');
 createdUsing.setAttribute('id', 'createdUsingCode');
-createdUsing.style.display = 'flex';
-createdUsing.style.position = 'absolute';
+setDisplayAndPosition(createdUsing);
 createdUsing.style.left = '265px';
-createdUsing.style.top = '1160px';
-//createdUsing.style.width = '480px';
-//createdUsing.style.height = '112px';
+createdUsing.style.top = '1140px';
 createdUsing.style.color = '#b8b8b8';
-createdUsing.style.fontSize = '50px';
 let h3createdUsing = document.createElement('h3');
     h3createdUsing.innerText = 'CREATED USING CODE ONLY';
     createdUsing.style.fontFamily = 'Poiret One'; 
+    createdUsing.style.fontSize = '40px';
     createdUsing.append(h3createdUsing);
 ourBody.append(createdUsing);
 
+// PHOTO 
+// 
+// DISPLAY
 
+function photoDisplayProps (element) {
+    element.style.top = '1238px';
+    element.style.width = '264px';
+    element.style.height = '276px';
+    document.body.appendChild(element);
+    setDisplayAndPosition(element);
+};
+
+let downImg4 = document.createElement('img');
+downImg4.src = 'img/violetLandscape.png';
+downImg4.style.left = '952px';
+photoDisplayProps(downImg4);
+
+let downImg3 = document.createElement('img');
+downImg3.src = 'img/Snitch.png';
+downImg3.style.left = '648px';
+photoDisplayProps(downImg3);
+
+let downImg2 = document.createElement('img');
+downImg2.src = 'img/cloudyMoon.png';
+downImg2.style.left = '344px';
+photoDisplayProps(downImg2);
+
+let downImg1 = document.createElement('img');
+downImg1.src = 'img/fire.png';
+downImg1.style.left = '40px';
+photoDisplayProps(downImg1);
+
+// INFO
+// UNDER
+// PHOTOS
+
+function propsUnderPhoto (element, elementTop, elementColor, elementFontSize) {
+    element.style.fontFamily = 'Poiret One'; 
+    element.style.color = elementColor;
+    element.style.top = elementTop;
+    element.style.fontSize = elementFontSize;
+    document.body.appendChild(element);
+    setDisplayAndPosition (element);
+};
+
+const seeMore = document.createElement('div');
+    seeMore.setAttribute('id', 'SeeMore');
+    propsUnderPhoto (seeMore, '1520px', 'white', '20px');
+    seeMore.style.left = '196px';
+const h1seeMore = document.createElement('h1');
+    h1seeMore.innerText = 'SEE MORE ON CODE PEN';
+    seeMore.append(h1seeMore);
+
+const work = document.createElement('div');
+    work.setAttribute('id', 'Work');
+    propsUnderPhoto (work, '1530px', 'white', '60px');
+    work.style.right = '24px';
+const h1work = document.createElement('h1');
+    h1work.innerText = 'WORK';
+    work.append(h1work);
+
+const experience = document.createElement('div');
+    experience.setAttribute('id', 'Experience');
+    propsUnderPhoto (experience, '1640px', '#b8b8b8', '60px');
+    experience.style.right = '24px';
+const h1experience = document.createElement('h1');
+    h1experience.innerText = 'EXPERIENCE';
+    experience.append(h1experience);   
