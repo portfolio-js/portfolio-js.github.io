@@ -279,18 +279,12 @@ function accordionStyle (element, color, backColor)  {
     element.style.height = '64px';
     element.style.fontFamily = 'Poiret One'; 
     element.style.fontSize = '20px'
-    element.setAttribute.className = "accordionItemHeading";
+    element.setAttribute('class', 'accordionItemHeading');
     element.style.color = color;
     element.style.backgroundColor = backColor;
     element.style.borderTop = 'thin solid white'
     document.body.appendChild(element);
 };
-
-// what is in common?
-// flex
-// position
-// class
-// text style
 
 const accordion1 = document.createElement('div');
 accordionStyle (accordion1, 'white', 'black');
@@ -334,7 +328,6 @@ const accordion3Year = document.createElement('h2');
 const accordionOpen3 = document.createElement('p'); 
     accordionOpen3.setAttribute('id', 'accordionOpen3');
     accordion3.append(accordionOpen3);  
-
 
 /*
 Глобально, аккордеон это div на всю длину экрана,  котором есть цифра, заголовок и год.
@@ -442,4 +435,37 @@ console.log(s.length) // 10
 */
 
 //WIP
-//document.getElementsByClassName("accordionItemHeading").addEventListener("click", hideOrExpandAcc); 
+function hideOrExpandAccord1 () {
+    console.log(accordionOpen1)
+    if (accordionOpen1.textContent === '') {
+        accordionOpen1.textContent = 'text acc 1'
+    } else {
+        accordionOpen1.textContent = '';
+    };
+};
+function hideOrExpandAccord2 () {
+    console.log(accordionOpen2)
+    if (accordionOpen2.textContent === '') {
+        accordionOpen2.textContent = 'text acc 2'
+    } else {
+        accordionOpen2.textContent = '';
+    };
+};
+function hideOrExpandAccord3 () {
+    console.log(accordionOpen3)
+    if (accordionOpen3.textContent === '') {
+        accordionOpen3.textContent = 'text acc 3'
+    } else {
+        accordionOpen3.textContent = '';
+    };
+};
+
+const accHeadingArray = document.getElementsByClassName("accordionItemHeading");
+accHeadingArray[0].addEventListener('click', hideOrExpandAccord1); 
+accHeadingArray[1].addEventListener("click", hideOrExpandAccord2); 
+accHeadingArray[2].addEventListener("click", hideOrExpandAccord3); 
+/*for (let i = 0; i < accHeadingArray.length; i++) {
+    accHeadingArray[i].addEventListener("click", hideOrExpandAccord); 
+};
+*/
+//for loops with if and else 
