@@ -260,212 +260,65 @@ const h1experience = document.createElement('h1');
     h1experience.innerText = 'EXPERIENCE';
     experience.append(h1experience);   
 
+// 
 // ACCORDION
 //
-//
 
-// Yulia's hints
-//div with border (top)
-// display flex 
-// flex justify content space between 
-// event lister on the whole space 
-// hint: append empty div 
-// if text exist - 
-
-function accordionStyle (element, color, backColor)  {
+function accordionStyle (element)  {
     element.style.display = 'flex';
     element.style.position = 'relative';
     element.style.justifyContent = 'space-between';
-    element.style.height = '64px';
     element.style.fontFamily = 'Poiret One'; 
     element.style.fontSize = '20px'
     element.setAttribute('class', 'accordionItemHeading');
-    element.style.color = color;
-    element.style.backgroundColor = backColor;
+    element.style.color = 'white';
     element.style.borderTop = 'thin solid white'
     document.body.appendChild(element);
 };
 
-const accordion1 = document.createElement('div');
-accordionStyle (accordion1, 'white', 'black');
-accordion1.style.top = '2064px';
-const accordion1Text = document.createElement('h2');
-    accordion1Text.innerText = 'O1   FRONTEND DEVELOPER AT IBM';
-    accordion1Text.style.left = '24px';
-    accordion1.append(accordion1Text);
-const accordion1Year = document.createElement('h2');
-    accordion1Year.innerText = '2021';
-    accordion1Year.style.right = '24px';
-    accordion1.append(accordion1Year);
-const accordionOpen1 = document.createElement('p'); 
-    accordionOpen1.setAttribute('id', 'accordionOpen1');
-    accordion1.append(accordionOpen1);  
-
-const accordion2 = document.createElement('div');
-accordionStyle (accordion2, 'black', 'white');
-accordion2.style.top = '2128px';
-const accordion2Text = document.createElement('h2');
-    accordion2Text.innerText = 'O2 COMMUNITY ENGINEER AT ANAPLAN';
-    accordion2.append(accordion2Text);   
-const accordion2Year = document.createElement('h2');
-    accordion2Year.innerText = '2020';
-    accordion2Year.style.right = '24px';
-    accordion2.append(accordion2Year);
-const accordionOpen2 = document.createElement('p');   
-    accordionOpen2.setAttribute('id', 'accordionOpen2');
-    accordion2.append(accordionOpen2);    
-
-const accordion3 = document.createElement('div');
-accordionStyle (accordion3, 'white', 'black');
-accordion3.style.top = '2192px';
-const accordion3Text = document.createElement('h2');
-    accordion3Text.innerText = 'O3   SOFTWARE ENGINEERING INSTRUCTOR AT GENERAL ASSEMBLY';
-    accordion3.append(accordion3Text);  
-const accordion3Year = document.createElement('h2');
-    accordion3Year.innerText = '2020';
-    accordion3Year.style.right = '24px';
-    accordion3.append(accordion3Year);     
-const accordionOpen3 = document.createElement('p'); 
-    accordionOpen3.setAttribute('id', 'accordionOpen3');
-    accordion3.append(accordionOpen3);  
-
-/*
-Глобально, аккордеон это div на всю длину экрана,  котором есть цифра, заголовок и год.
-Так же, в этом div-е есть описание, которое пропадает и появляется при нажатии на div.
-Что из этого мы можем сделать?
-1. Мы можем сделать div на весь экран и добавить его в дом, где будет аккордеон? 
-Это уже неплохое начало.
--done
-2. Так же мы можем сделать, чтобы div-а был стиль с добавлением белого border-top 
-(мы вроде top решили, я не помню)
--done
-3. Теперь ему надо добавить стиль, чтобы на hover он становился белый:
-для упрощения, давай сделаем это пока через CSS файл: 
-придумаем название класса или id и скажем, 
-что на hover фон должен становиться белым.
-Посмотри как добавить css hover, если не помнишь.
-В CSS файле мы написали класс или id, но элемент пока о нем не знает, 
-потому что мы не связали элемент с классом.
-4. Вернемся в JS и добавим нашему div-у аттрибут “класс” или “id” с 
-тем названием, которое мы придумали в СSS файле.
--done
-5. У этого div-а должен быть текст. 
-Давай подумаем, можно ли просто записать ему textContent или 
-нам в этот div нужно отдельно создать элементы с текстом? 
-Не можем мы просто сделать divName.textContent = ‘01 Blahblah 2021’,
-потому что “01 Blahblah” и “2021" стоят в разных концах экрана.
-Размер экрана мы не можем угадать, чтобы напихать туда пробелов, 
-значит расстановкой контента должен заниматься сам div.
--done
-6. Для этого, мы добавим ему стиль display: flex. Flex занимается расстановкой 
-“детей“, значит давай ему их добавим.:
--done
-7. Для этого нам нужно создать два текстовых элемента, например, 
-<h4> c контентом “01 Blahblah” и второй с контентом “2021"
--done
-8. Так как эти элементы будут детьми div-а, то их нужно в него положить, 
-чтобы структура была:
-<div>
-    <h4>01 Blahblah</h4>
-    <h4>2021</h4>
-</div> 
--done
-9. Flex пока не сделал так, чтобы элементы были расставлены по разным углам, 
-для этого нам нужно добавить justify-content: space-between нашему div-у
-Теперь самое интересное, надо сделать так, чтобы при клике на div добавлялся 
-или исчезал текст с описанием.
--done
-10. Опять, начинаем с того, что мы уже знаем. А знаем мы то, что 
-это должно происходить на клик:
-99.9% это означает, что нам нужно eventListener, который вызывает какую-то 
-функцию на клик.
--done
-11. К какому элементу мы его добавим? - Ко всему div-у, потому что мы не хотим, 
-чтобы пользователю нужно было кликать на какой-то конкретный элемент для того, 
-чтобы появился текст. Пользователь должен иметь возможность кликнуть на весь 
-заголовок или на год, чтобы увидеть текст. Посмотри или погугли 
-how to add an eventListener to an HTML element
--done
-12. Функцию, которая будет вызываться на клик нужно назвать,
- чтобы понятно было, что она делает.
-Она показывает или скрывает описание на клик.
--done
-13. Внутри функции мы хотим проверить есть ли текст на странице или нет, 
-но мы пока не создали элемент, где будет отображаться текст.
--done
-14. Вероятно, мы хотим, чтобы текст с описанием отображался внутри div-а. 
-Давай вернемся к шагу 7, где мы создавали h с текстом и сделаем внутри 
-нашего div-а еще один элемент, например, <p>
--done
-15. Нужно ли в него добавлять текст? 
-- Вероятно нет, потому что мы не хотим, чтобы в нем был текст, пока на него 
-не кликнули.
--done
-16. Хорошо, у нас есть placeholder элемент, куда мы будем добавлять текст, 
-но как наша функция о нем узнает? - у нас есть два решения, либо внутри 
-функции искать getElemebtById (и присвоить этому <p> id для упрощения поиска), 
-либо при создании этого <p> элемента сохранить его в память JS, то есть 
-сохранить его в переменную, как ты сохраняла все созданные элементы до 
-этого и просто обращаться к этой переменной.
--done
-///////////////////////////////////
-
-17. Я опишу вариант, когда ты сохранила элемент в переменную при создании, 
-например const accordeonDesc = document.createElement('p');
-Теперь в функции, которая вызывается на клик, мы можем посмотреть 
-пустой ли у нее текст контент или нет. Мы не можем сказать 
-accordeonDesc.textContent === "Blahblah" потому что там может быть другой текст, 
-но мы можем посмотреть, записано ли хоть что-либо в textContent. 
-Для этого нам нужно знание структур данных.
-мы помним, что в “” пишутся строки и значение textContent это строка. 
-У строк и arrays есть возможность посмотреть их “наполненность”
-
-const a = [1,2,3,4];
-console.log(a.length) // 4
-
-const s = "Hello Cris";
-console.log(s.length) // 10
-
-Давай проверим “наполненность” textContent элемента
-18. Теперь давай подумаем что мы хотим сделать
-если “наполненность” textContent элемента равна нулю, то мы хотим присвоить 
-какой-то текст else (если textContent НЕ равен нулю), то мы хотим текст убрать, 
-то есть хотим, чтобы textContent элемента равнялся пустой строке 
-(accordeonDesc.textContent = "")
-*/
-
-//WIP
-function hideOrExpandAccord1 () {
-    console.log(accordionOpen1)
-    if (accordionOpen1.textContent === '') {
-        accordionOpen1.textContent = 'text acc 1'
-    } else {
-        accordionOpen1.textContent = '';
-    };
+const experienceAcc = {
+    1: {
+        title: 'O1   FRONTEND DEVELOPER AT IBM',
+        year: '2021',
+        paragraph: 'par1'
+    },
+    2: {
+        title: 'O2 COMMUNITY ENGINEER AT ANAPLAN',
+        year: '2020',
+        paragraph: 'par2'
+    },
+    3: {
+        title: 'O3   SOFTWARE ENGINEERING INSTRUCTOR AT GENERAL ASSEMBLY',
+        year: '2020',
+        paragraph: 'par3'
+    }
 };
-function hideOrExpandAccord2 () {
-    console.log(accordionOpen2)
-    if (accordionOpen2.textContent === '') {
-        accordionOpen2.textContent = 'text acc 2'
+
+function hideOrExpandAccord (p, pizza) {
+    console.log('here')
+    if (p.textContent === '') {
+        p.textContent = experienceAcc[pizza].paragraph;
     } else {
-        accordionOpen2.textContent = '';
-    };
-};
-function hideOrExpandAccord3 () {
-    console.log(accordionOpen3)
-    if (accordionOpen3.textContent === '') {
-        accordionOpen3.textContent = 'text acc 3'
-    } else {
-        accordionOpen3.textContent = '';
+        p.textContent = '';
     };
 };
 
-const accHeadingArray = document.getElementsByClassName("accordionItemHeading");
-accHeadingArray[0].addEventListener('click', hideOrExpandAccord1); 
-accHeadingArray[1].addEventListener("click", hideOrExpandAccord2); 
-accHeadingArray[2].addEventListener("click", hideOrExpandAccord3); 
-/*for (let i = 0; i < accHeadingArray.length; i++) {
-    accHeadingArray[i].addEventListener("click", hideOrExpandAccord); 
-};
-*/
-//for loops with if and else 
+for (const key in experienceAcc) {
+//    console.log(`${key}: ${experienceAcc[key].title}`);
+    let acc = document.createElement('div');
+    acc.setAttribute('class', 'accordionDiv');
+    ourBody.append(acc)
+    let accHeading = document.createElement('div');
+    accHeading.setAttribute('class', 'accordionItemHeading');
+    accordionStyle (accHeading);
+    acc.append(accHeading);
+    let title = document.createElement('h2');
+    title.textContent = experienceAcc[key].title;
+    accHeading.append(title);
+    let year = document.createElement('h2');
+    year.textContent = experienceAcc[key].year;
+    accHeading.append(year);
+    let paragraph = document.createElement('p');
+    acc.append(paragraph);
+    accHeading.addEventListener('click', () => hideOrExpandAccord (paragraph, key)); 
+};  

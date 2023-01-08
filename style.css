@@ -9,6 +9,12 @@ html, body {
   height: 100%;
 }
 
-.accordionItemHeading {
-
+#accordionOpen1 p, #accordionOpen2 p, #accordionOpen3 p {
+  text-align: justify;
+  height: auto;
 }
+
+.accordionItemHeading:hover {
+  background-color: white;
+  color: black;
+};
